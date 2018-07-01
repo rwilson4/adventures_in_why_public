@@ -1,2 +1,4 @@
-# adventures_in_why_public
-Projects related to Adventures In Why
+# Adventures in Why
+
+Miscellaneous scripts and tools related to [Adventures in Why, a
+Machine Learning Blog](http://www.adventuresinwhy.com).
