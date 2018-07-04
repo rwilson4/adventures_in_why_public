@@ -9,7 +9,6 @@ logging.basicConfig(format=FORMAT, level=logging.INFO)
 
 
 def execute(sf=100, alpha=0.05, Bp=400):
-    alpha = 0.05  # p-value threshold
     Bss = 100000  # Number of simulations for statistical significance
 
     N = 1000 * sf
