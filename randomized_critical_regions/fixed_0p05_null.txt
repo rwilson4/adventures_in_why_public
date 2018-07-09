@@ -1,0 +1,2 @@
+Sample Size	Simulations	Rejections	Power	Power Low	Power High
+       1000	    1000000	     49944	 4.99%	    4.95%	     5.04%
