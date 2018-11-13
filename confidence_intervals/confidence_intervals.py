@@ -1,6 +1,5 @@
 from __future__ import print_function, division
 import numpy as np
-import math
 import sys
 import logging
 
@@ -49,11 +48,13 @@ def stat_sig_hypergeometric(na, nb, ea, eb, B=1000000):
 
 
 def stat_sig_multihypergeometric(na, nb, ea, eb, null_hypothesis, B=1000000):
-    oe_obs = np.abs(eb / nb - ea / na)
+    expected = (null_hypothesis[1] + null_hypothesis[3]) / (na + nb)
+    expected -= (null_hypothesis[1] + null_hypothesis[2]) / (na + nb)
+    oe_obs = np.abs(eb / nb - ea / na - expected)
     q = multivariate_hypergeometric(null_hypothesis, na, B=B)
     sa = q[1, :] + q[2, :]
     sb = (null_hypothesis[1] - q[1, :]) + (null_hypothesis[3] - q[3, :])
-    z = np.abs(sb / nb - sa / na)
+    z = np.abs(sb / nb - sa / na - expected)
     pval = np.mean(z >= oe_obs)
     return pval
 
